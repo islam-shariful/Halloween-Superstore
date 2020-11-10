@@ -14,12 +14,13 @@ namespace Ch24ShoppingCartMVC.Controllers {
             ViewData["FooterText"] = "Where every day is Halloween!";
             return View();
         }
-        //[HttpGet]
-        //public ViewResult Contact() {
-        //    //CREATE A ContactViewModel OBJECT call model  model
-        //    ____________________________________________________
-        //    //Pass model to View
-        //    _________________________________
-        //}
+        [HttpGet]
+        public ViewResult Contact()
+        {
+            //CREATE A ContactViewModel OBJECT call model  model
+            ContactViewModel model = new ContactViewModel();
+            //Pass model to View
+            return View(model);
+        }
     }
 }
