@@ -26,5 +26,6 @@ namespace Ch24ShoppingCartMVC.Models.DataAccess
         }
     
         public DbSet<Product> Products { get; set; }
+        public object User { get; internal set; }
     }
 }
