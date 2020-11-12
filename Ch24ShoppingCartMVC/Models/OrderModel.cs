@@ -29,7 +29,7 @@ namespace Ch24ShoppingCartMVC.Models
                 //implement other required properties
                 ImageFile = product.ImageFile,
                 LongDescription = product.LongDescription,
-                Quantity = product.OnHand,
+                Quantity = (uint)product.OnHand,
                 ShortDescription = product.ShortDescription,
                 UnitPrice = product.UnitPrice
             };

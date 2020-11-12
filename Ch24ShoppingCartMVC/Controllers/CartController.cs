@@ -15,27 +15,27 @@ namespace Ch24ShoppingCartMVC.Controllers {
         {
             return RedirectToAction("List/");
         }
-        //[HttpGet]
-        //public ViewResult List()
-        //{
-        //    CartViewModel model = (CartViewModel)TempData["cart"];
-        //    //if the model is null, then call the method GetCart
-        //   ________________________________
-        //    //Passing model to View
-        //    return V___________________________
-        //}
-        //[HttpPost]
-        //public RedirectToRouteResult List(OrderViewModel order)
-        //{
-        //    CartViewModel model = cart.GetCart(order.SelectedProduct.ProductID);
-        //    //Assign the quantity of the selected product to the quantity of the added product
-        //   ____________________________________________________________
-        //    //Call the method AddtoCart
-        //    _________________________________
-        //    //Assign model to the TempData
-        //    __________________________________________
-        //    return RedirectToAction("List", "Cart");
-        //}
-       
+        [HttpGet]
+        public ViewResult List()
+        {
+            CartViewModel model = (CartViewModel)TempData["cart"];
+            //if the model is null, then call the method GetCart
+            model = cart.GetCart();
+            //Passing model to View
+            return View(model);
+        }
+        [HttpPost]
+        public RedirectToRouteResult List(OrderViewModel order)
+        {
+            CartViewModel model = cart.GetCart(order.SelectedProduct.ProductID);
+            //Assign the quantity of the selected product to the quantity of the added product
+            model.AddedProduct.Quantity = order.SelectedProduct.Quantity;
+            //Call the method AddtoCart
+            cart.AddToCart(model);
+            //Assign model to the TempData
+            TempData["cart"] = model;
+            return RedirectToAction("List", "Cart");
+        }
+
     }
 }
