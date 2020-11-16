@@ -18,8 +18,8 @@ namespace Ch24ShoppingCartMVC.Models {
         //display item's property values
         public string Display()
         {
-            string display = string.Format("{0} ({1} at {2} each)",
-                Name, Quantity.ToString(), UnitPrice.ToString("c"));
+            string display = string.Format("{0} ({1} at {2} each) | Total price: {3}",
+                Name, Quantity.ToString(), UnitPrice.ToString("c"), (Quantity*UnitPrice));
             return display;
         }
     }
