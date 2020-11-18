@@ -7,6 +7,7 @@
     <link href="~/Content/Order.css" rel="stylesheet" />
 }
 <form id="frmDropDown" action="/Order/Index/" method="post">
+    @Html.AntiForgeryToken()
     <h2>Halloween Store Order Page</h2>
 
     <label>Please select a product&nbsp;</label>
